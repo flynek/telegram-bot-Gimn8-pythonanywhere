@@ -6,9 +6,6 @@ from aiogram.types import InlineKeyboardMarkup, InputMediaPhoto, InputMediaDocum
 from create_bot import bot
 
 
-# Start command
-
-
 async def edit_message_doc(call: types.CallbackQuery, doc,
                            kb: InlineKeyboardMarkup, caption: str):
     await call.message.edit_media(media=doc)
@@ -87,8 +84,6 @@ async def start_func(callback: types.CallbackQuery):
         await edit_message_photo(call=callback, photo=image_sign, caption=previous_message, kb=previous_kb)
         await callback.answer()
 
-
-# Register dispatcher
-
+        
 def register_handlers_clients(dispatcher: Dispatcher):
     dispatcher.register_message_handler(command_start, commands=['start', 'help'])
